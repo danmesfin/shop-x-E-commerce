@@ -10,7 +10,6 @@ import { addToWishList } from '../../store/shop/wishList';
 import { increment, decrement } from '../../store/counter/counterSlice';
 import { useSelector } from 'react-redux';
 import Image from 'next/image';
-import { useEffect } from 'react';
 import { AiOutlineHeart } from 'react-icons/ai';
 
 const Product = () => {
@@ -40,8 +39,6 @@ const Product = () => {
   const onAddtoWishListHandler = (item) => {
     dispatch(addToWishList(item));
   };
-
-  useEffect(() => {});
 
   return (
     <section className="flex flex-col mt-10 py-5 px-10">
