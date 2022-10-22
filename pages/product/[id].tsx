@@ -1,4 +1,5 @@
 // @ts-nocheck
+import React from 'react';
 import { useRouter } from 'next/router';
 import { useDispatch } from 'react-redux';
 import {
@@ -17,8 +18,8 @@ const Product = () => {
   const { id } = router.query;
 
   const dispatch = useDispatch();
-  const myProducts = useSelector((state) => state.product.product);
-  const item = myProducts.filter((product) => product.id == id)[0];
+  const allProducts = useSelector((state) => state.product.product);
+  const _item = allProducts.find((product) => product.id == id);
   const count = useSelector((state) => state.counter.value);
 
   const onAddtoCartHandler = (item, count) => {
@@ -45,7 +46,7 @@ const Product = () => {
       <div className="flex flex-wrap md:flex-nowrap md:px-10">
         <div className="w-full md:w-1/2 mx-2 flex justify-center">
           <Image
-            src={item.image}
+            src={_item.image}
             alt="img"
             height={250}
             width={250}
@@ -53,12 +54,12 @@ const Product = () => {
           />
         </div>
         <div className="w-full md:w-1/2 flex flex-col justify-center text-gray-800">
-          <div className="text-lg font-semibold">{item.title}</div>
+          <div className="text-lg font-semibold">{_item.title}</div>
           <div className="md:w-72 text-sm text-gray-800 mt-3 space-x-1">
-            {item.description}
+            {_item.description}
           </div>
           <div className="text-gray-800 mt-3 space-x-1 text-sm">
-            Rating : {item.rating.rate}/5
+            Rating : {_item.rating.rate}/5
           </div>
           <div className="flex w-24 justify-between border rounded-lg px-2 mt-3 py-0 font-bold">
             <button
@@ -77,14 +78,14 @@ const Product = () => {
           </div>
           <div className="flex mt-3">
             <button
-              onClick={() => onAddtoCartHandler(item, count)}
+              onClick={() => onAddtoCartHandler(_item, count)}
               className="transform delay-75 duration-100 text-sm hover:bg-red-500 hover:shadow-md border border-red-500 rounded-lg mx-1 px-2"
             >
               Add to cart
             </button>
             <AiOutlineHeart
               className="mx-2 hover:fill-red-500 hover:cursor-pointer"
-              onClick={() => onAddtoWishListHandler(item)}
+              onClick={() => onAddtoWishListHandler(_item)}
             />
           </div>
         </div>
