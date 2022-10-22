@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react';
 import SingleItem from '../Cards/SingleItem';
 import Skeleton from '../Skeleton';
 
-import { addProduct } from '../../redux/shop/productSlice';
+import { addProduct } from '../../store/shop/productSlice';
 import { useDispatch, useSelector } from 'react-redux';
 
 export default function Product() {

@@ -1,7 +1,7 @@
 // @ts-nocheck
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { removeFromWishList } from '../../redux/shop/wishList';
+import { removeFromWishList } from '../../store/shop/wishList';
 import Image from 'next/image';
 import Link from 'next/link';
 import { AiFillDelete } from 'react-icons/ai';

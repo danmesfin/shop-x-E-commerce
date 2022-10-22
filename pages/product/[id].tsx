@@ -5,9 +5,9 @@ import {
   addToCart,
   totalAmount,
   totalCartItems,
-} from '../../redux/shop/cartReducerSlice';
-import { addToWishList } from '../../redux/shop/wishList';
-import { increment, decrement } from '../../redux/counter/counterSlice';
+} from '../../store/shop/cartReducerSlice';
+import { addToWishList } from '../../store/shop/wishList';
+import { increment, decrement } from '../../store/counter/counterSlice';
 import { useSelector } from 'react-redux';
 import Image from 'next/image';
 import { useEffect } from 'react';

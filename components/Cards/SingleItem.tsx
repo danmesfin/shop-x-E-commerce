@@ -5,8 +5,8 @@ import {
   addToCart,
   totalAmount,
   totalCartItems,
-} from '../../redux/shop/cartReducerSlice';
-import { addToWishList } from '../../redux/shop/wishList';
+} from '../../store/shop/cartReducerSlice';
+import { addToWishList } from '../../store/shop/wishList';
 import Link from 'next/link';
 import { AiOutlineHeart } from 'react-icons/ai';
 
@@ -45,7 +45,7 @@ function SingleItem({ item }: { item: any }) {
       <div className="flex justify-center">
         <button
           onClick={() => onAddtoCartHandler(item)}
-          className="transform delay-50 duration-50 text-sm hover:bg-pink-500 hover:shadow-md border border-pink-500 rounded-lg mx-1 px-2"
+          className="transform delay-50 duration-50 text-sm hover:bg-red-500 hover:shadow-md border border-pink-500 rounded-lg mx-1 px-2"
         >
           Add to cart
         </button>

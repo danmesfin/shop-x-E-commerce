@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { applyFilter } from '../../redux/shop/productSlice';
+import { applyFilter } from '../../store/shop/productSlice';
 
 function index() {
   const dispatch = useDispatch();
@@ -51,11 +51,11 @@ function index() {
   };
 
   return (
-    <aside className="md:h-screen sticky top-10 w-full px-6 md:w-72 flex flex-col rounded-md md:px-2 text-gray-600 font-semibold text-xs">
+    <aside className="md:h-screen sticky top-10 w-full px-6 md:w-72 flex flex-col rounded-md md:px-2 text-gray-800 font-semibold text-sm">
       <div className="text-md font-bold px-2 py-1 m-1 border">Filter</div>
       <div className="bg-gray-100 flex flex-col rounded-md shadow-sm px-2 py-3">
         {checkboxValues.map((item) => (
-          <div key={item.id}>
+          <div key={item.id} className="mt-3">
             <input
               type="checkbox"
               id={item.id}
@@ -82,7 +82,7 @@ function index() {
         </div>
       </div>
       <button
-        className="my-2 bg-gradient-to-br from-red-600 via-yellow-400 to-sky-500 rounded-sm px-4 mx-auto border hover:border-red-500"
+        className="my-2 bg-gradient-to-br from-red-600  to-sky-500 rounded-sm px-4 mx-auto border hover:border-red-500"
         onClick={applyFilterhandler}
       >
         Apply

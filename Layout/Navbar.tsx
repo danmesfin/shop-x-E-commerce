@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
 import Link from 'next/link';
-import Navitem from '../Navitem';
+import Navitem from '../components/Navitem';
 import Image from 'next/image';
 import { AiOutlineHeart, AiOutlineShoppingCart } from 'react-icons/ai';
 import { CgProfile } from 'react-icons/cg';

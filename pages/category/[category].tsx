@@ -2,7 +2,7 @@
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 import { useDispatch, useSelector } from 'react-redux';
-import { filterByCategory } from '../../redux/shop/productSlice';
+import { filterByCategory } from '../../store/shop/productSlice';
 
 import Sidebar from '../../components/Sidebar';
 import SingleItem from '../../components/Cards/SingleItem';

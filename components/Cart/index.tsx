@@ -8,7 +8,7 @@ import {
   totalCartItems,
   incrementQuantity,
   decrementQuantity,
-} from '../../redux/shop/cartReducerSlice';
+} from '../../store/shop/cartReducerSlice';
 import Image from 'next/image';
 import Link from 'next/link';
 import { AiFillDelete } from 'react-icons/ai';
