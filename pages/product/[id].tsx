@@ -13,7 +13,7 @@ import { useSelector } from 'react-redux';
 import Image from 'next/image';
 import { AiOutlineHeart } from 'react-icons/ai';
 
-const Product = () => {
+function Product() {
   const router = useRouter();
   const { id } = router.query;
 
