@@ -26,8 +26,8 @@ function SingleItem({ item }: { item: any }) {
   };
 
   return (
-    <div className="bg-white transform delay-75 duration-150 px-6 md:p-2 m-1 w-full md:w-60 h-96 border border-gray-300 rounded-md hover:shadow-md hover:border-pink-200">
-      <Link href={`/product/${encodeURIComponent(item.id)}`}>
+    <div className="bg-white transform delay-50 duration-100 px-6 md:p-2 m-1 w-full md:w-60 h-96 border border-gray-300 rounded-md hover:shadow-md hover:border-pink-200">
+      <Link href={`/product/${item.id}`}>
         <a>
           <Image
             src={item.image}

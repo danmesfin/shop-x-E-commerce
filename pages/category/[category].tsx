@@ -35,7 +35,6 @@ function Category() {
   if (isLoading) return <p>Loading..</p>;
   if (!items) return <p>No profile data</p>;
 
-  console.log(items[0]);
   return (
     <section className="flex py-10 px-5 flex-wrap md:flex-nowrap ">
       <div className="w-full md:w-1/4 flex">

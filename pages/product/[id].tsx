@@ -1,5 +1,5 @@
 // @ts-nocheck
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
 import { useDispatch } from 'react-redux';
 import {
@@ -11,16 +11,35 @@ import { addToWishList } from '../../store/shop/wishList';
 import { increment, decrement } from '../../store/counter/counterSlice';
 import { useSelector } from 'react-redux';
 import Image from 'next/image';
+import Link from 'next/link';
 import { AiOutlineHeart } from 'react-icons/ai';
+import Spinner from '../../components/Spinner';
+import { CgArrowLeft } from 'react-icons/cg';
 
 function Product() {
+  const [isLoading, setLoading] = useState(false);
   const router = useRouter();
   const { id } = router.query;
 
+  const [_item, setItem] = useState(null);
   const dispatch = useDispatch();
-  const allProducts = useSelector((state) => state.product.product);
-  const _item = allProducts.find((product) => product.id == id);
   const count = useSelector((state) => state.counter.value);
+
+  useEffect(() => {
+    console.log("id",id)
+    setLoading(true)
+    fetch(`http://fakestoreapi.com/products/${id}`)
+      .then((res) => res.json())
+      .then((data) => {
+        setItem(data)
+        setLoading(false)
+      })
+  }, [])
+
+  //const allProducts = useSelector((state) => state.product.product);
+  //const _item = allProducts.find((product) => product.id == id);
+  if (isLoading) return <div className='flex h-screen justify-center mx-auto items-center'><Spinner /></div>;
+  if (!_item) return <p>No profile data</p>
 
   const onAddtoCartHandler = (item, count) => {
     const quantity = count;
@@ -40,9 +59,11 @@ function Product() {
   const onAddtoWishListHandler = (item) => {
     dispatch(addToWishList(item));
   };
+ 
 
   return (
     <section className="flex flex-col mt-10 py-5 px-10">
+      <div className='cursor-pointer w-4 rounded-lg hover:bg-gray-200'><Link href="/"><CgArrowLeft /></Link></div>
       <div className="flex flex-wrap md:flex-nowrap md:px-10">
         <div className="w-full md:w-1/2 mx-2 flex justify-center">
           <Image
