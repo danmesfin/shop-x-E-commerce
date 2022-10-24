@@ -24,23 +24,6 @@ function Product() {
   const [_item, setItem] = useState(null);
   const dispatch = useDispatch();
   const count = useSelector((state) => state.counter.value);
-
-  useEffect(() => {
-    console.log("id",id)
-    setLoading(true)
-    fetch(`http://fakestoreapi.com/products/${id}`)
-      .then((res) => res.json())
-      .then((data) => {
-        setItem(data)
-        setLoading(false)
-      })
-  }, [])
-
-  //const allProducts = useSelector((state) => state.product.product);
-  //const _item = allProducts.find((product) => product.id == id);
-  if (isLoading) return <div className='flex h-screen justify-center mx-auto items-center'><Spinner /></div>;
-  if (!_item) return <p>No profile data</p>
-
   const onAddtoCartHandler = (item, count) => {
     const quantity = count;
     const product = { ...item, quantity };
@@ -59,7 +42,21 @@ function Product() {
   const onAddtoWishListHandler = (item) => {
     dispatch(addToWishList(item));
   };
- 
+  
+  useEffect(() => {
+    setLoading(true)
+    fetch(`https://fakestoreapi.com/products/${id}`)
+      .then((res) => res.json())
+      .then((data) => {
+        setItem(data)
+        setLoading(false)
+      })
+  }, [])
+
+  //const allProducts = useSelector((state) => state.product.product);
+  //const _item = allProducts.find((product) => product.id == id);
+  if (isLoading) return <div className='flex h-screen justify-center mx-auto items-center'><Spinner /></div>;
+  if (!_item) return <p>No profile data</p>
 
   return (
     <section className="flex flex-col mt-10 py-5 px-10">

@@ -7,8 +7,9 @@ function Layout({ children }) {
   return (
     <div className="flex flex-col bg-gradient-to-b ">
       <Head>
-        <title>Shopzone</title>
-        <meta name="description" content="Daniel Mesfin" />
+        <title>Shopx online shopping</title>
+        <meta name="description" content="online shopping" />
+        <meta name="description" content="shopx" />
         <link rel="icon" href="/Icon/favicon.ico" />
       </Head>
       <Navbar />

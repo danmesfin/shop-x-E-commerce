@@ -23,6 +23,7 @@ export default function Product() {
       });
   }, []);
 
+  
   if (isLoading) return <Skeleton />;
 
   if (!data) return <p>No profile data</p>;
